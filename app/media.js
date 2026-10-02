@@ -1,0 +1,1 @@
+import{mountMedia}from'./media-widget.js';mountMedia(document.querySelector('#player'),{floating:true});document.querySelector('#dock').onclick=()=>petHost.action('dockMedia');document.querySelector('#close').onclick=()=>petHost.action('hideMedia');

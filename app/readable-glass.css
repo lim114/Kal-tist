@@ -1,0 +1,64 @@
+:root{--reading-plate:transparent;--reading-soft:transparent;--reading-border:transparent;--reading-text:var(--glass-text);--reading-muted:var(--glass-muted)}
+/* The glass tint can be fully transparent. Text islands retain an independent
+   contrast floor, without filtering, scaling or outlining glyphs. */
+:root[data-glass-blur=false]{--reading-plate:rgb(16 33 28 / .91);--reading-soft:rgb(16 33 28 / .86);--reading-border:#e1edce30;--reading-text:#f4f7ef;--reading-muted:#d4dfd1}
+:root[data-glass-blur=false][data-glass-tone=light]{--reading-plate:rgb(243 249 244 / .94);--reading-soft:rgb(243 249 244 / .91);--reading-border:#193e2f30;--reading-text:#172b25;--reading-muted:#31483d}
+:root[data-glass-blur=false] .chat-theme #activity,:root[data-glass-blur=false] .chat-theme #reply-wrap{
+ background:var(--reading-plate);border:1px solid var(--reading-border);border-radius:10px;
+ color:var(--reading-text);padding:5px 8px;margin-top:5px;
+}
+:root[data-glass-blur=false] .chat-theme #reply-wrap{padding:0 8px}
+:root[data-glass-blur=false] .chat-theme #reply{color:var(--reading-text);margin-top:7px;margin-bottom:7px}
+:root[data-glass-blur=false] .chat-theme #reply-wrap:has(#reply:empty){display:none}
+:root[data-glass-blur=false] .chat-theme #activity{color:var(--reading-muted)}
+:root[data-glass-blur=false] .chat-theme footer{gap:5px;flex-wrap:wrap;margin-top:7px}
+:root[data-glass-blur=false] .chat-theme footer button,:root[data-glass-blur=false] .chat-theme #draft{background:var(--reading-soft);border:1px solid var(--reading-border);color:var(--reading-text);padding:3px 7px}
+:root[data-glass-blur=false] .chat-theme footer button:hover,:root[data-glass-blur=false] .chat-theme #draft:hover{background:var(--reading-plate)}
+:root[data-glass-blur=false] .chat-theme textarea{background:var(--reading-plate);color:var(--reading-text);border-color:var(--reading-border)}
+:root[data-glass-blur=false] .chat-theme textarea::placeholder{color:var(--reading-muted)}
+:root[data-glass-blur=false] .chat-theme #embeddedMusic{padding:9px 8px 7px;background:var(--reading-plate);border:1px solid var(--reading-border);border-radius:12px;--media-text:var(--reading-text);--media-muted:var(--reading-muted);--media-link:var(--reading-text)}
+:root[data-glass-blur=false] .chat-theme #notice:not(:empty){padding:5px 8px;background:var(--reading-plate);border:1px solid var(--reading-border);border-radius:8px;color:var(--reading-text)}
+:root[data-glass-blur=false] .chat-theme .window-controls button{background:var(--reading-soft);color:var(--reading-text);border-color:var(--reading-border)}
+/* Both the trigger and its floating list use the same light-catching rim. */
+.chat-theme #tasks{
+ background:linear-gradient(155deg,#ffffff28,#ffffff04 55%),var(--reading-soft);
+ border:1px solid #ffffff45;border-radius:12px;
+ box-shadow:inset 0 1px 0 #ffffff55,inset 0 -1px 0 #ffffff14;
+ color:var(--reading-text);backdrop-filter:var(--glass-backdrop);
+}
+.chat-theme #tasks:hover,.chat-theme .task-picker.open #tasks{background:linear-gradient(155deg,#ffffff38,#ffffff08 55%),var(--reading-plate);border-color:#ffffff6b}
+.chat-theme .task-popover{
+ padding:8px;border-radius:18px;border:1px solid #f3ffec70;
+ background:radial-gradient(ellipse at 12% 0%,#ffffff32,transparent 62%),rgb(var(--glass-rgb) / max(.24,var(--glass-alpha)));
+ backdrop-filter:var(--glass-backdrop);
+ box-shadow:inset 0 1px 0 #ffffff91,inset 0 -1px 0 #ffffff2b;
+}
+.chat-theme .task-menu-caption{background:var(--reading-soft);border-radius:9px;padding:4px 8px;margin-bottom:5px;color:var(--reading-muted)}
+.chat-theme .task-list [role=option]{background:var(--reading-plate);color:var(--reading-text);border:1px solid var(--reading-border);margin-top:4px;border-radius:11px}
+.chat-theme .task-list [role=option].active{background:linear-gradient(#c5e89620,#c5e89620),var(--reading-plate);color:var(--reading-text);border-color:#cbeab85c}
+.chat-theme .task-list [aria-selected=true]{background:linear-gradient(#c5e89630,#c5e89630),var(--reading-plate);color:var(--reading-text)}
+.chat-theme .task-chevron{color:var(--reading-muted)}
+/* The menu is its own readable glass surface, independent of card transparency.
+   Top-layer positioning lets the blur sample modes/status/replies underneath. */
+:root{--menu-base:#142820;--menu-text:#f4f7ef;--menu-muted:#d4dfd1;--menu-alpha:.88}
+:root[data-menu-tone=light]{--menu-base:#f5f8f6;--menu-text:#172b25;--menu-muted:#31483d}
+:root[data-glass-blur=false]{--menu-alpha:.98}
+.chat-theme .task-popover[popover]{
+ position:fixed;inset:auto;margin:0;box-sizing:border-box;
+ --reading-plate:transparent;--reading-soft:transparent;--reading-border:transparent;
+ --reading-text:var(--menu-text);--reading-muted:var(--menu-muted);
+ background:linear-gradient(145deg,#ffffff0d,transparent 65%),
+  color-mix(in srgb,color-mix(in srgb,rgb(var(--glass-rgb)) 30%,var(--menu-base)) calc(var(--menu-alpha)*100%),transparent);
+ color:var(--menu-text);border-color:#dcecdf42;
+ box-shadow:inset 0 1px 0 #ffffff30,0 8px 22px #07150f30;
+}
+.task-popover[popover] .task-list [role=option]{transition:background 130ms}
+.task-popover[popover]::backdrop{background:transparent;pointer-events:none;backdrop-filter:none}
+:root[data-menu-tone=light] .task-popover .task-check{color:#496929}
+:root[data-menu-tone=light] .task-popover .task-state{background:#607957}
+@supports not (backdrop-filter:blur(1px)){:root{--menu-alpha:1}}
+@media(prefers-contrast:more),(prefers-reduced-transparency:reduce){
+ :root[data-glass-blur=false]{--reading-plate:#10211c;--reading-soft:#10211c;--reading-text:#f4f7ef;--reading-muted:#d4dfd1}
+ .chat-theme #tasks,.chat-theme .task-popover[popover]{backdrop-filter:none;background:#243c30;--menu-text:#f4f7ef;--menu-muted:#d4dfd1}
+}
+@media(forced-colors:active){.chat-theme #tasks,.chat-theme .task-popover[popover],.chat-theme #activity,.chat-theme #reply-wrap,.chat-theme #embeddedMusic,.chat-theme .task-list [role=option]{background:Canvas;color:CanvasText;border-color:CanvasText;box-shadow:none}}

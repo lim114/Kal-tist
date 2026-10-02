@@ -1,0 +1,9 @@
+{
+  "application": "EsperantaCompanion",
+  "version": "2.16.0",
+  "baseRelease": "v16-character-icons",
+  "renderer": "Spine only v11",
+  "architecture": "x64",
+  "minWindowsBuild": 19045,
+  "electron": "44.4.5"
+}

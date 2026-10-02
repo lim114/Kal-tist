@@ -1,0 +1,22 @@
+html:has(body.chat-theme),body.chat-theme{background:transparent!important}
+body.chat-theme{padding:8px;overflow:hidden}
+.chat-theme #bubble{max-height:min(664px,calc(100vh - 16px));overflow:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#758466 transparent;background-clip:padding-box;isolation:isolate;box-shadow:none}
+.chat-theme #composer[hidden],#embeddedMusic[hidden]{display:none}
+.chat-theme #embeddedMusic{margin-top:12px;border-top:1px solid #bccc9128;padding-top:12px}
+.chat-theme #composer>div{gap:6px;margin-top:5px}
+.chat-theme #reply{max-height:48px}
+.chat-theme.expanded #reply{max-height:190px}
+.chat-theme textarea{margin-top:10px;background:#ffffff09;border-color:#bccc9138}
+.chat-theme .signature-row{height:27px;margin-top:7px;flex-shrink:0}
+.chat-theme .pet-signature{height:27px;width:102px}
+body:not(.chat-theme) #embeddedMusic{margin-top:18px;padding:16px;border:1px solid #bccc9130;border-radius:18px;background:linear-gradient(135deg,#2c3b32,#1e2d28);overflow:hidden}
+
+.chat-theme #bubble{padding:9px 12px 7px;border-radius:19px;background:linear-gradient(135deg,#2c3b32,#1e2d28)}
+.chat-theme header{-webkit-app-region:drag;height:26px;cursor:move}.chat-theme header button,.chat-theme header select{-webkit-app-region:no-drag}.drag-grip{font-size:18px;color:#b7c49d;flex:none}
+.chat-theme #activity{padding-top:2px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;font-size:13px}
+.chat-theme footer{margin-top:3px}.chat-theme footer button{font-size:13px}
+.chat-theme #composer{display:flex;align-items:flex-end;gap:7px}.chat-theme #composer textarea{flex:1;min-width:0;margin-top:6px;height:41px;padding:9px}.chat-theme #composer>div{flex:none;gap:2px;margin:0 0 3px}.chat-theme #composer button{font-size:13px;padding:5px 7px}
+.chat-theme #embeddedMusic{margin-top:7px;padding-top:7px}.chat-theme .signature-row{height:40px;min-height:40px;margin-top:0}.chat-theme .pet-signature{width:168px;height:40px;opacity:.86}
+body:not(.chat-theme) #embeddedMusic{margin-top:10px;padding:10px;border-radius:14px}
+
+.chat-theme .signature-row{height:52px;min-height:52px;margin-top:-2px}.chat-theme .pet-signature{width:210px;height:64px}

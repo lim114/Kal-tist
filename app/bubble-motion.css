@@ -1,0 +1,57 @@
+/* Soft popover surfaces inspired by Radix; stroke icons follow Lucide. */
+.chat-theme{--ui-ease:cubic-bezier(.2,.75,.2,1);--ui-soft:#c5d48b12;--ui-hover:#c5d48b20}
+.chat-theme #bubble{padding-top:8px}
+.chat-theme header{height:34px;gap:6px;position:relative;z-index:5}
+.chat-theme .drag-grip{width:15px;font-size:17px;opacity:.6;transition:opacity 160ms}
+.chat-theme .drag-grip:hover{opacity:1}
+.chat-theme #dot{width:6px;height:6px;margin-right:1px;transition:background 200ms,box-shadow 200ms}
+.task-picker{position:relative;flex:1;min-width:0;-webkit-app-region:no-drag}
+.chat-theme #tasks{width:100%;height:30px;display:flex;align-items:center;gap:8px;padding:0 8px;font-size:13px;line-height:20px;text-align:left;border:1px solid transparent;border-radius:9px;color:#e7ecdf;transition:background 160ms,border-color 160ms;user-select:none}
+.chat-theme #tasks:hover,.task-picker.open #tasks{background:var(--ui-soft);border-color:#c5d48b25}
+.task-label{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;flex:1;min-width:0}
+.task-chevron{width:13px;height:13px;flex:none;color:#9cae8d;transition:transform 200ms var(--ui-ease)}
+.task-picker.open .task-chevron{transform:rotate(180deg)}
+.chat-theme button:focus-visible{outline:0;box-shadow:0 0 0 2px #b5ca8966}
+.task-popover{position:absolute;left:-8px;top:calc(100% + 6px);width:min(356px,calc(100vw - 78px));padding:7px;border:1px solid #b7c99038;border-radius:13px;background:#24392e;box-shadow:0 10px 24px #06180d66,0 1px 3px #06180d55;transform-origin:28px 0;z-index:10;overflow:hidden;user-select:none;cursor:default;-webkit-app-region:no-drag}
+.task-popover[data-open=true]{animation:task-open 200ms var(--ui-ease) both}
+.task-popover[data-open=false]{animation:task-close 130ms ease-in both;pointer-events:none}
+.task-popover[hidden]{display:none}
+.task-menu-caption{display:flex;align-items:center;justify-content:space-between;padding:2px 7px 6px;color:#93a78e;font-size:11px;letter-spacing:.05em}
+.task-count{font-variant-numeric:tabular-nums;opacity:.65}
+.task-list{overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#81936155 transparent;max-height:208px}
+.task-list [role=option]{position:relative;display:flex;gap:9px;align-items:center;min-height:37px;padding:8px 9px;border-radius:8px;color:#dce5d5;cursor:pointer;font-size:13px;line-height:19px;transition:background 130ms,color 130ms}
+.task-list [role=option].active{background:#c3d39a16;color:#f0f4e6}
+.task-list [role=option][aria-selected=true]{background:#adbf7930;color:#e6efc7}
+.task-option-label{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.task-state{width:5px;height:5px;flex:none;border-radius:50%;background:#879583}
+.task-state.running{background:#c3d58e;box-shadow:0 0 0 3px #c3d58e12}
+.task-check{width:15px;height:15px;flex:none;opacity:0;color:#c6d78f}
+[aria-selected=true]>.task-check{opacity:1}
+.task-picker svg,.window-controls svg{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.window-controls{display:flex;flex:none;gap:3px;align-items:center;-webkit-app-region:no-drag;margin-left:3px}
+.chat-theme .window-controls button{width:27px;height:27px;padding:5px;display:grid;place-items:center;border-radius:8px;border:1px solid #c2d0930f;background:#c5d48b06;color:#a9bb9a;transition:background 160ms,color 160ms,border-color 160ms,transform 140ms var(--ui-ease)}
+.window-controls svg{width:16px;height:16px}
+.chat-theme .window-controls button:hover{background:#c5d48b20;color:#e1ecc8;border-color:#c5d48b30}
+.chat-theme .window-controls button:active{transform:scale(.92)}
+.chat-theme .window-controls #close:hover{background:#cfafa018;color:#e4c7b9;border-color:#cfafa027}
+.window-controls #expand svg{transition:transform 220ms var(--ui-ease)}
+.window-controls #expand[aria-expanded=true] svg{transform:rotate(180deg)}
+.window-controls #follow.confirmed{color:#dfebae;background:#c5d48b24}
+.window-controls #follow.confirmed svg{animation:locate-confirm 380ms var(--ui-ease)}
+.chat-theme #reply-wrap{overflow:hidden;min-height:0}
+.chat-theme #reply{display:block;max-height:42px;overflow:hidden;margin-top:5px;margin-bottom:2px;-webkit-line-clamp:unset}
+.chat-theme.expanded #reply{max-height:190px;overflow:auto;scrollbar-width:thin;scrollbar-color:#758466 transparent}
+.chat-theme #activity{padding-top:1px}
+.chat-theme #reply-wrap:has(#reply:empty){display:none}
+.chat-theme footer button,.chat-theme #composer button{transition:background 160ms,color 160ms,transform 140ms var(--ui-ease)}
+.chat-theme #composer button:active{transform:translateY(1px)}
+.chat-theme #codex{display:inline-flex;align-items:center;gap:5px}
+.gpt-icon{display:inline-block;width:15px;height:15px;background:#f2f2f2;mask:url('./assets/theme/chatgpt.svg') center/contain no-repeat;flex:none}
+.chat-theme.ui-enter #bubble{animation:bubble-enter 210ms var(--ui-ease) both}
+.chat-theme.ui-exit #bubble{animation:bubble-exit 150ms ease-in both;pointer-events:none}
+@keyframes task-open{from{opacity:0;transform:translateY(-5px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes task-close{from{opacity:1;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(-3px) scale(.985)}}
+@keyframes bubble-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bubble-exit{to{opacity:0;transform:translateY(4px)}}
+@keyframes locate-confirm{0%,100%{transform:scale(1)}45%{transform:scale(.78)}}
+@media(prefers-reduced-motion:reduce){.chat-theme *, .chat-theme *::before{animation-duration:1ms!important;transition-duration:1ms!important}}

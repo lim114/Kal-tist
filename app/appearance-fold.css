@@ -1,0 +1,11 @@
+.appearance-section{padding-top:0;padding-bottom:0}
+#appearanceSettings>summary{display:flex;align-items:center;gap:10px;list-style:none;cursor:pointer;padding:16px 0;user-select:none}
+#appearanceSettings>summary::-webkit-details-marker{display:none}
+#appearanceSettings>summary h2{flex:1;margin:0}
+#appearanceSettings>summary #sizeLabel{font-size:12px;color:var(--muted)}
+#appearanceSettings>summary svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform 230ms;pointer-events:none}
+#appearanceSettings[open]>summary svg{transform:rotate(180deg)}
+#appearanceSettings>summary:focus-visible{outline:2px solid var(--green);outline-offset:2px;border-radius:8px}
+#appearanceBody{overflow:hidden;padding-bottom:16px}
+#appearanceBody>.glass-controls{margin-top:13px}
+@media(prefers-reduced-motion:reduce){#appearanceSettings>summary svg{transition:none}}

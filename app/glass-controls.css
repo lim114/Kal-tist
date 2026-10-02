@@ -1,0 +1,12 @@
+.glass-controls{margin-top:17px;border-top:1px solid #c5d48b22;padding-top:14px}
+.glass-controls .glass-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.glass-controls h3{font-size:13px;font-weight:500;margin:0}
+.glass-color-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#glassColor{width:38px;height:32px;padding:3px;border:1px solid #8baf8766;border-radius:9px;background:#ffffff08;cursor:pointer}
+#glassHex{width:92px;padding:6px 8px;border:1px solid #8baf8755;border-radius:7px;background:#142c23;color:#edf4e4;text-transform:uppercase}
+.glass-swatches{display:flex;gap:7px;margin-left:auto}
+.glass-swatches button{width:24px;height:24px;padding:0;border-radius:50%;border:2px solid #ffffff45;background:var(--swatch);box-shadow:inset 0 0 0 2px #0001}
+.glass-swatches [data-color="#365949"]{--swatch:#365949}.glass-swatches [data-color="#cadad5"]{--swatch:#cadad5}.glass-swatches [data-color="#5c7394"]{--swatch:#5c7394}.glass-swatches [data-color="#87719a"]{--swatch:#87719a}
+.glass-range{display:flex;align-items:center;gap:9px}.glass-range input[type=range]{flex:1;min-width:50px;accent-color:#bdce92}.glass-range input[type=number]{width:58px}.glass-range label{font-size:12px}
+#glassReset{padding:4px 8px}#glassFeedback{min-height:18px;color:#c7d6a8;margin:5px 0 0;font-size:11px}
+.glass-controls label{font-size:12px}

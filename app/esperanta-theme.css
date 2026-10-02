@@ -1,0 +1,17 @@
+/* Palette: Esperanta coat/ribbon. Signature: user-provided wallpaper,
+   transparent extraction via built-in imagegen; preserved as a local asset. */
+:root{--pet-card:#23352df5;--pet-border:#bccc9138;--pet-text:#edf0df;--pet-muted:#a4b4a3;--pet-accent:#c5d48b}
+/* Interface labels are controls; only conversation content is selectable. */
+.pet-card{user-select:none;-webkit-user-select:none;cursor:default}
+.pet-card #reply,.pet-card textarea,.pet-card [contenteditable="true"]{user-select:text;-webkit-user-select:text;cursor:text}
+.pet-card select{user-select:none;-webkit-user-select:none;cursor:pointer}
+.pet-card{position:relative;background:linear-gradient(135deg,#2c3b32f8,#1e2d28f8);border:1px solid var(--pet-border);border-radius:24px;box-shadow:0 5px 18px #0003;overflow:hidden}
+.pet-card::before{content:"";position:absolute;left:18px;top:0;width:66px;height:2px;background:var(--pet-accent);opacity:.75;pointer-events:none}
+.pet-signature{display:block;flex:none;width:118px;height:35px;background:url("./assets/theme/kaltsit-signature.png") center/contain no-repeat;opacity:.72;pointer-events:none}
+.signature-row{display:flex;justify-content:flex-end;align-items:center;min-height:22px;margin-top:2px;pointer-events:none}
+body.chat-theme{color:var(--pet-text)}.chat-theme #bubble{background:linear-gradient(135deg,#2c3b32f8,#1e2d28f8);border-color:var(--pet-border)}
+.chat-theme select{color:var(--pet-text)}.chat-theme option{background:#283c31}.chat-theme pre{color:#e6ecde}.chat-theme #activity{color:var(--pet-muted)}.chat-theme button{color:#bfcda9}.chat-theme #dot.running{background:#d2df99;box-shadow:0 0 7px #b9d17144}.chat-theme textarea{background:#17271fcc;border-color:#bccc9138;color:var(--pet-text)}.chat-theme #send{background:var(--pet-accent);color:#203326}.chat-theme footer{gap:2px}.chat-theme footer button{padding:3px 6px}.chat-theme .signature-row{margin-top:-1px;height:20px}
+body.music-theme{background:transparent;padding:8px;overflow:hidden}.music-theme header{border-bottom-color:#c5d48b1a;height:44px}.music-theme main{padding:18px 22px 11px}.music-theme .song{gap:15px}.music-theme .art{width:94px;height:94px;flex-basis:94px;border-radius:17px}.music-theme .controls{gap:13px}.music-theme .controls .mode{font-size:20px;width:35px;height:35px;color:var(--pet-accent)}.music-theme .controls .mode.selected{background:#c5d48b2a}.music-theme .controls .play{background:var(--pet-accent)}.music-theme #message{min-height:30px;margin:12px 0 6px}.music-theme .timeline{margin-top:20px}.music-theme footer{padding-top:10px}.music-theme .signature-row{margin-top:5px}.music-theme header small{font-size:10px}
+.music-theme .controls .play{background:#819257}.music-theme .controls .play:not(:disabled):hover{background:#91a364}
+
+.signature-row,.chat-theme .signature-row{height:35px;min-height:35px;margin-top:1px}

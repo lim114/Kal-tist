@@ -1,0 +1,11 @@
+Runtime: Electron 44.4.5, licenses in runtime/LICENSE and runtime/LICENSES.chromium.html.
+Spine runtime: preserve the original license header in app/vendor/spine-webgl.js.
+Application source: app/*.js and app/*.cjs, original GPL-3.0 text in LICENSE.
+MediaArtwork source: app/MediaArtwork.cs; launcher source: source/Launcher.cs.
+NetEase local adapter reference: https://github.com/Seraph310/cloudmusic-desktop-mcp (MIT); no account data bundled.
+Installer: Inno Setup 6.7.3 (https://jrsoftware.org/), compiler not installed on destination computers.
+Character art / user-provided signature retain their separate original rights.
+GPT mark from the local official Codex app; original SVG retained.
+UI references: https://www.radix-ui.com/themes/docs/components/select and https://lucide.dev/.
+
+Desktop conversation adapter: kajmahal/chatgpt-conversations-mcp (Apache-2.0), license in app/licenses.

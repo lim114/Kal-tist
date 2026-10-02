@@ -1,0 +1,3 @@
+const assert=require('assert/strict'),{layoutInteraction}=require('./interaction-layout.cjs');
+const area={x:0,y:0,width:1707,height:920},model={minX:-800,minY:-3,maxX:120,maxY:700};let count=0;
+for(const size of [160,240,340,600])for(const x of [0,400,Math.max(0,area.width-size)])for(const y of [0,300,Math.max(0,area.height-size-40)]){const b={x,y,width:size,height:size+40},r=layoutInteraction(b,area,model),a=r.anchor,f=r.frame,w=r.bounds;assert.ok(Math.abs(w.x-f.minX/f.worldW*w.width-a.x)<1e-8);assert.ok(Math.abs(w.y+w.height+f.minY/f.worldH*w.height-a.y)<1e-8);assert.ok(Math.abs(w.height/f.worldH-a.scale)<1e-8);assert.ok(w.x>=0&&w.y>=0&&w.x+w.width<=area.width&&w.y+w.height<=area.height);count++}console.log({fixedAnchorCases:count,characterScaleUnchanged:true});

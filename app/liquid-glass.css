@@ -1,0 +1,99 @@
+/* Glass styling with an optional DWM backdrop, not Apple's native refraction. Keep text on its own
+   unfiltered surface; all glints are non-interactive and clipped to the card. */
+.chat-theme #bubble {
+  border-radius:24px;
+  border:1px solid #e4f2d65c;
+  background:
+    radial-gradient(ellipse at 8% 0%,#ecf6d92b,transparent 54%),
+    radial-gradient(ellipse at 100% 100%,#a8d3bc14,transparent 62%),
+    linear-gradient(145deg,#294337e8,#162c25eb 65%,#294137e6);
+  backdrop-filter:blur(22px) saturate(125%);
+  box-shadow:inset 0 1px 0 #f1ffe24d,inset 0 -1px 0 #d5f4d41c,0 3px 7px #03180e30;
+}
+.chat-theme #bubble::before {
+  left:16px;right:16px;top:0;width:auto;height:1px;opacity:1;
+  background:linear-gradient(90deg,transparent,#efffe2b8 18%,#efffe218 68%,transparent);
+}
+.chat-theme #bubble::after {
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  border:1px solid transparent;
+  background:linear-gradient(130deg,#ebffe35e,transparent 35%,transparent 70%,#cbefd138) border-box;
+  mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  mask-composite:exclude;
+}
+.chat-theme #activity{color:#c0cebb}
+.chat-theme pre{color:#f0f4e8}
+.chat-theme footer button{color:#dae5c6;border-radius:9px}
+.chat-theme footer button:hover{background:#e0f2c315}
+.chat-theme .window-controls button{
+  border-radius:50%;border-color:#e8f5d621;
+  background:linear-gradient(160deg,#e8f5d612,#e8f5d605);
+  box-shadow:inset 0 1px 0 #f4ffe410;
+  color:#d0dfc0;
+}
+.chat-theme .window-controls button:hover{border-color:#e8f5d64a;background:#e8f5d622;color:#f2f9e7}
+.chat-theme textarea{
+  border-radius:14px;border-color:#d9ebc83b;
+  background:linear-gradient(150deg,#11271f75,#162c2566);
+  box-shadow:inset 0 1px 3px #00160d24;
+}
+.chat-theme textarea::placeholder{color:#a7b7a7;opacity:1}
+.chat-theme textarea:focus{outline:none;border-color:#d7eaa890;box-shadow:0 0 0 2px #c5d48b14,inset 0 1px 3px #00160d24}
+.chat-theme #send{background:linear-gradient(155deg,#e1ecb3,#b8cc86);box-shadow:inset 0 1px 0 #f6ffeaa3,0 1px 3px #0b241f30}
+.chat-theme .task-popover{
+  background:linear-gradient(145deg,#3a5145fa,#213b30fc);
+  border-color:#e1edcd4a;box-shadow:inset 0 1px 0 #f0ffdf2e,0 9px 22px #071f1570;
+}
+.chat-theme #embeddedMusic{border-top-color:#deedcb25}
+.chat-theme .pet-signature{opacity:.85}
+/* Never make reduced-transparency/high-contrast users read through glass. */
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){
+  .chat-theme #bubble{background:#243c30;backdrop-filter:none;border-color:#d0dfb0}
+  .chat-theme #bubble::before,.chat-theme #bubble::after{display:none}
+  .chat-theme #activity{color:#d5dfcc}
+}
+@media(forced-colors:active){
+  .chat-theme #bubble,.chat-theme .task-popover{background:Canvas;color:CanvasText;border-color:CanvasText;box-shadow:none;backdrop-filter:none}
+}
+
+/* v9: independent tint alpha, moving specular light and a clipped native backdrop. */
+:root{--glass-rgb:54 89 73;--glass-alpha:.4;--glass-text:#f4f7ef;--glass-muted:#d4dfd1;--glass-link:#e3edc7;--glass-field:#0d231e54;--glass-line:#f0ffe438;--glass-text-shadow:none}
+:root[data-glass-tone=light]{--glass-text:#172b25;--glass-muted:#31483d;--glass-link:#263e2c;--glass-field:#ffffff2e;--glass-line:#17382d40;--glass-text-shadow:none}
+.chat-theme{color:var(--glass-text)}
+.chat-theme #bubble{
+ background:radial-gradient(ellipse at var(--glint-x,18%) var(--glint-y,0%),#ffffff18,transparent 54%),linear-gradient(155deg,#fff1,transparent 48%,#ffffff08),rgb(var(--glass-rgb) / var(--glass-alpha));
+ border-color:#e9fff02e;box-shadow:inset 0 1px 0 #ffffff26;
+ backdrop-filter:blur(22px) saturate(145%);
+}
+.chat-theme #bubble::after{
+ background:radial-gradient(ellipse at var(--glint-x,18%) var(--glint-y,0%),#ffffff55,transparent 58%),linear-gradient(135deg,#ffffff24,transparent 30%,#ffffff08 65%,#dbffe024);
+ padding:1px;border:0;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;
+}
+.chat-theme pre,.chat-theme #tasks{color:var(--glass-text);text-shadow:var(--glass-text-shadow)}
+.chat-theme #activity,.chat-theme .drag-grip{color:var(--glass-muted);text-shadow:var(--glass-text-shadow)}
+.chat-theme footer button,.chat-theme .window-controls button,.chat-theme #draft{color:var(--glass-link);text-shadow:var(--glass-text-shadow)}
+.chat-theme .window-controls button{background:linear-gradient(160deg,#ffffff1c,#ffffff06);border-color:#ffffff40;box-shadow:inset 0 1px 0 #ffffff38}
+.chat-theme .window-controls button:hover{background:#ffffff2e;color:var(--glass-text)}
+.chat-theme textarea{background:var(--glass-field);color:var(--glass-text);border-color:var(--glass-line)}
+.chat-theme textarea::placeholder{color:var(--glass-muted)}
+.chat-theme .task-popover{background:linear-gradient(#ffffff12,#ffffff02),color-mix(in srgb,rgb(var(--glass-rgb)) 88%,#12231b);border-color:#ffffff52;color:var(--glass-text)}
+.chat-theme .task-list [role=option],.chat-theme .task-menu-caption,.chat-theme .task-chevron{color:var(--glass-muted)}
+.chat-theme .task-list [aria-selected=true]{color:var(--glass-text);background:#a3c68538}
+.chat-theme .task-list [role=option].active{color:var(--glass-text);background:#ffffff20}
+.chat-theme #embeddedMusic{border-top-color:var(--glass-line);--media-text:var(--glass-text);--media-muted:var(--glass-muted);--media-link:var(--glass-link);text-shadow:var(--glass-text-shadow)}
+[data-glass-tone=light] .chat-theme .pet-signature{filter:brightness(.28)}
+:root{--glass-backdrop:blur(22px) saturate(145%)}
+:root[data-glass-blur=false]{--glass-backdrop:none}
+.chat-theme #bubble{backdrop-filter:var(--glass-backdrop)}
+/* Native material is clipped in window coordinates; keep the card at its anchor. */
+[data-native-glass=true] .chat-theme #bubble{border-radius:8px}
+[data-native-glass=true] .chat-theme.ui-enter #bubble{animation:glass-enter 210ms ease-out both}
+[data-native-glass=true] .chat-theme.ui-exit #bubble{animation:glass-exit 150ms ease-in both}
+@keyframes glass-enter{from{opacity:.6}to{opacity:1}}
+@keyframes glass-exit{to{opacity:.6}}
+@media(prefers-reduced-transparency:reduce),(prefers-contrast:more){
+ :root{--glass-backdrop:none}
+ .chat-theme #bubble,.chat-theme .task-popover{background:#243c30;backdrop-filter:none}
+ :root[data-glass-tone]{--glass-text:#f4f7ef;--glass-muted:#d4dfd1;--glass-link:#e3edc7;--glass-field:#0d231e54;--glass-text-shadow:none}
+}
+@media(forced-colors:active){:root{--glass-backdrop:none}.chat-theme #bubble,.chat-theme .task-popover{background:Canvas;color:CanvasText;border-color:CanvasText}}

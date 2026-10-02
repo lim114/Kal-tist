@@ -1,0 +1,10 @@
+.conversation-controls{margin:8px 0 5px;user-select:none;cursor:default}
+.conversation-modes{display:grid;grid-template-columns:1.25fr 1fr .8fr;gap:3px;padding:3px;border:1px solid #e5f4dc30;border-radius:15px;background:linear-gradient(140deg,#ffffff16,#ffffff03);box-shadow:inset 0 1px #ffffff20}
+.conversation-modes button{font:inherit;font-size:12px;padding:5px 8px;min-width:0;border-radius:11px;color:inherit;transition:background .18s ease,color .18s ease,box-shadow .18s ease;border:0;background:transparent;cursor:pointer}
+.conversation-modes button[aria-pressed=true]{background:#c7dfa532;box-shadow:inset 0 1px #e6f5d244;color:var(--glass-text,#edf3e5)}
+.conversation-modes button:hover{background:#d6e6cb20}
+.conversation-modes button:focus-visible{outline:2px solid #bddb9c;outline-offset:1px}
+.conversation-tools{display:flex;align-items:center;gap:6px;font-size:11px;padding-top:4px;color:var(--glass-muted,#b6c5b7)}
+.conversation-tools[hidden]{display:none}.conversation-tools button{font:inherit;white-space:nowrap}.conversation-hint{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.conversation-binding{display:block;width:100%;margin:5px 0;padding:7px;border-radius:10px;background:#253a31;color:#edf3e5;border:1px solid #b9d7ae44;font:inherit;user-select:none;cursor:pointer}
+@media(prefers-reduced-motion:reduce){.conversation-modes button{transition:none}}
